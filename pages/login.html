@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<head>
+
+</head>
+<body>
+    <div >
+        <div>
+            <div>
+                <h3 >No Cognito User Pool Configured</h3>
+            </div>
+            <div class="panel-body">
+                <p>There is no user pool configured in <a href="/js/config.js">/js/config.js</a>. You'll configure this in Module 2 of the workshop.</p>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <h1>Register</h1>
+        <form id="registrationForm">
+          <input type="email" id="emailInputRegister" placeholder="Email" pattern=".*" required>
+          <input type="password" id="passwordInputRegister" placeholder="Password" pattern=".*" required>
+          <input type="password" id="password2InputRegister" placeholder="Confirm Password" pattern=".*" required>
+
+          <input type="submit" value="Let's Ryde">
+        </form>
+    </section>
+
+    <script src="js/vendor/jquery-3.1.0.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/aws-cognito-sdk.min.js"></script>
+    <script src="js/vendor/amazon-cognito-identity.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/cognito-auth.js"></script>
+</body>
+</html>
+
