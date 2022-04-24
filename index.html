@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Bootstrap Example</title>
+  <title>InventoryApp</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap set up -->
@@ -21,26 +22,35 @@
 
 <body>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">AWS Inventory App</a>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">AWS Inventory App</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+        <li><a href="signin.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Option</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="signin.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
-  </div>
-</nav>
-  
-<div class="container">
-  <h1>Inventory Application</h1>
-  <p>Here is the basic outline for our app</p>
-</div>
+  </nav>
 
+  <div class="container">
+    <h1>Inventory Application</h1>
+    <p id="Welcome">Welcome! <a href="signin.html">Log in</a> to continue to the Inventory.</p>
+    <p id="SignedIn" style="display: none;" >Signed In </p>
+
+
+  </div>
+   <script src="js/vendor/jquery-3.1.0.js"></script>
+   <script src="js/vendor/bootstrap.min.js"></script>
+   <script src="js/vendor/aws-cognito-sdk.min.js"></script>
+   <script src="js/vendor/amazon-cognito-identity.min.js"></script>
+   <script src="js/config.js"></script>
+   <script src="js/cognito-auth.js"></script>
 </body>
+
 </html>

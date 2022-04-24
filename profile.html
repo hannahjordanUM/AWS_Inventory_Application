@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="/css/message.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>User Profile</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">AWS Inventory App</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="profile.html">Profile</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+                <li><a href="signin.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>User Profile</h1>
+
+        <button id="signout" type="button" onclick="signOut()" style="display: none;">Sign Out</button>
+
+        <h4 id="signInMessage"> You are not signed in.</h4>
+        <br>
+        <h4>Personal Information</h4>
+        <br>
+
+
+        <div>
+            <label id="emailvalue">Email: <span>(Email)</span></label>
+        </div>
+
+        <div>
+            <label id="username">Username: <span>(Username)</span></label>
+        </div>
+
+        <div>
+            <label id="fname">First: <span>(Firstname)</span></label>
+        </div>
+
+        <div>
+            <label id="lname">Last: <span>(Lastname)</span></label>
+        </div>
+
+    </div>
+
+    <!-- scripts -->
+    <script>
+
+        function signOut() {
+            var poolData = {
+                UserPoolId: _config.cognito.userPoolId,
+                ClientId: _config.cognito.userPoolClientId
+            };
+
+            userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+
+            if (userPool.getCurrentUser() != null) {
+                userPool.getCurrentUser().signOut();
+                alert("Successfully signed you out");
+                window.location.href = "signin.html"
+            }
+            else {
+                alert("You are already signed out")
+            }
+
+        };
+    </script>
+    <script src="js/vendor/jquery-3.1.0.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/aws-cognito-sdk.min.js"></script>
+    <script src="js/vendor/amazon-cognito-identity.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/cognito-auth.js"></script>
+</body>
+
+</html>
