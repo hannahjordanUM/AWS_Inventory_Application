@@ -36,46 +36,56 @@
 
     <div class="container">
         <h1>User Profile</h1>
-
-        <button id="signout" type="button" onclick="signOut()" style="display: none;">Sign Out</button>
-
-        <h4 id="signInMessage"> You are not signed in.</h4>
+        <div id="signOutButton">
+            <button type="button" onclick="signOut()">Sign Out</button>
+        </div>
+        <h4 id="signInMessage"></h4>
         <br>
         <h4>Personal Information</h4>
         <br>
 
 
         <div>
-            <label id="emailvalue">Email: <span>(Email)</span></label>
+            <label id="email_value">Email: <span></span></label>
         </div>
 
         <div>
-            <label id="username">Username: <span>(Username)</span></label>
+            <label id="username">Username: <span></span></label>
         </div>
 
         <div>
-            <label id="fname">First: <span>(Firstname)</span></label>
+            <label id="fname">First: <span></span></label>
         </div>
 
         <div>
-            <label id="lname">Last: <span>(Lastname)</span></label>
+            <label id="lname">Last: <span></span></label>
         </div>
 
     </div>
 
     <!-- scripts -->
+    <!-- <script src="js/profile.js"></script> -->
+    <script src="js/vendor/jquery-3.1.0.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/aws-cognito-sdk.min.js"></script>
+    <script src="js/vendor/amazon-cognito-identity.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/cognito-auth.js"></script>
+
     <script>
 
+        var poolData = {
+            UserPoolId: _config.cognito.userPoolId,
+            ClientId: _config.cognito.userPoolClientId
+        };
+
+        userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+        var cognitoUser = userPool.getCurrentUser();
+
         function signOut() {
-            var poolData = {
-                UserPoolId: _config.cognito.userPoolId,
-                ClientId: _config.cognito.userPoolClientId
-            };
 
-            userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
-
-            if (userPool.getCurrentUser() != null) {
-                userPool.getCurrentUser().signOut();
+            if (cognitoUser != null) {
+                cognitoUser.signOut();
                 alert("Successfully signed you out");
                 window.location.href = "signin.html"
             }
@@ -84,13 +94,33 @@
             }
 
         };
+
+        window.onload = function () {
+            if (cognitoUser != null) {
+                document.getElementById("signOutButton").style.visibility = "visible";
+                cognitoUser.getSession(function (err, session) {
+                    if (err) {
+                        alert(err);
+                        return;
+                    }
+                    console.log('session validity: ' + session.isValid());
+                    // set the profile info
+                    cognitoUser.getUserAttributes(function (err, result) {
+                        if (err) {
+                            console.log(err);
+                            return;
+                        }
+                        console.log(result);
+                        document.getElementById("email_value").innerHTML = result[2].getValue();
+
+                    });
+                });
+            } else {
+                document.getElementById("signOutButton").style.visibility = "hidden";
+                document.getElementById("signInMessage").innerHTML = "Please sign in to see profile information.";
+            }
+        }
     </script>
-    <script src="js/vendor/jquery-3.1.0.js"></script>
-    <script src="js/vendor/bootstrap.min.js"></script>
-    <script src="js/vendor/aws-cognito-sdk.min.js"></script>
-    <script src="js/vendor/amazon-cognito-identity.min.js"></script>
-    <script src="js/config.js"></script>
-    <script src="js/cognito-auth.js"></script>
 </body>
 
 </html>
