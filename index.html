@@ -23,7 +23,7 @@
     </style>
     <script>
         // define the callAPI function that takes a first name and last name as parameters
-        var insertNewItem = (itemId,name,amount)=>{
+        var insertNewItem = (itemId,itemName,amount)=>{
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
@@ -40,10 +40,12 @@
             var requestOptions = {
                 method: 'PUT',
                 headers: myHeaders,
+                body: raw,
                 redirect: 'follow'
             };
             // make API call with parameters and use promises to get response
-            fetch("https://yld1fia96e.execute-api.us-west-2.amazonaws.com/dev/add/", requestOptions)
+            // Note: fetch("<api_invoke_url>/add") for this function, delete would be <api_invoke_url>/delete
+            fetch("https://8mf8a3ut4c.execute-api.us-west-2.amazonaws.com/dev/add", requestOptions)
             .then(response => response.text())
             .then(result => alert(JSON.parse(result).body))
             .catch(error => console.log('error', error));
