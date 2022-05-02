@@ -23,7 +23,7 @@
     </style>
     <script>
         // define the callAPI function that takes a first name and last name as parameters
-        var callAPI = ()=>{
+        var insertNewItem = (itemId,name,amount)=>{
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
@@ -31,13 +31,19 @@
             // using built in JSON utility package turn object to string and store in a variable
             //var raw = JSON.stringify({"firstName":firstName,"lastName":lastName});
             // create a JSON object with parameters for API call and store in a variable
+            var raw = JSON.stringify({
+              "id": itemId,
+              "name": itemName,
+              "amount": amount
+            })
+            
             var requestOptions = {
-                method: 'POST',
+                method: 'PUT',
                 headers: myHeaders,
                 redirect: 'follow'
             };
             // make API call with parameters and use promises to get response
-            fetch("https://twxv53qt5h.execute-api.us-west-2.amazonaws.com/prod/movies", requestOptions)
+            fetch("https://yld1fia96e.execute-api.us-west-2.amazonaws.com/dev/add/", requestOptions)
             .then(response => response.text())
             .then(result => alert(JSON.parse(result).body))
             .catch(error => console.log('error', error));
@@ -46,12 +52,18 @@
 </head>
 <body>
     <form>
-        <label>First Name :</label>
-        <input type="text" id="fName">
-        <label>Last Name :</label>
-        <input type="text" id="lName">
+        <label>Item Id :</label>
+        <input type="text" id="itemId">
+        <label>Item Name :</label>
+        <input type="text" id="name">
+        <label>Item Amount :</label>
+        <input type="text" id="amount">
         <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="callAPI()">Call API</button>
+        <button type="button" onclick="insertNewItem(
+          document.getElementById('itemId').value,
+          document.getElementById('name').value,
+          document.getElementById('amount').value
+          )">Insert Item</button>
     </form>
 </body>
 </html>
