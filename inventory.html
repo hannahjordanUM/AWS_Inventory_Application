@@ -2,31 +2,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript" src="./main.js"></script>
+    <script type="text/javascript" src="js/dynamoDB.js"></script>
 </head>
 <body>
 <h1>Submit an item to an Amazon DynamoDB Table</h1>
 <p>Enter a value for each attribute and choose Submit </p>
 <table style="width:100%">
     <tr>
-        <td>ID:</td>
-        <td><input type="text" id="id" name="id"/></td>
-    </tr>
-    <tr>
-        <td>Title:</td>
-        <td><input type="text" id="title" name="title"/></td>
-    </tr>
-    <tr>
-        <td>Name:</td>
+        <td>Name: </td>
         <td><input type="text" id="name" name="name"/></td>
     </tr>
     <tr>
-        <td>Body:</td>
-        <td><input type="text" id="body" name="body"/></td>
+        <td>SKU:</td>
+        <td><input type="text" id="SKU" name="SKU"/></td>
+    </tr>
+    <tr>
+        <td>Stock Level:</td>
+        <td><input type="text" id="stockLevel" name="stockLevel"/></td>
+    </tr>
+    <tr>
+        <td>Items Sold:</td>
+        <td><input type="text" id="numSold" name="numSold"/></td>
+    </tr>
+    <tr>
+        <td>Last Stocked:</td>
+        <td><input type="text" id="lastStocked" name="lastStocked"/></td>
+    </tr><tr>
+        <td>Date ordered:</td>
+        <td><input type="text" id="orderDate" name="orderDate"/></td>
+    </tr><tr>
+        <td>Sale Price:</td>
+        <td><input type="text" id="salePrice" name="salePrice"/></td>
+    </tr><tr>
+        <td>Order Price:</td>
+        <td><input type="text" id="orderPrice" name="orderPrice"/></td>
     </tr>
         <td></td>
         <td><button type="button" onclick="submitData();">Submit</button></td>
-        <script src="./main.js"></script>
+        <script src="./js/dynamoDB.js"></script>
     </tr>
 </table>
 </body>
