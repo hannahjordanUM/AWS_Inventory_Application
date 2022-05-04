@@ -1,4 +1,3 @@
-<!-- Modal -->
 <div class="modal fade" id="form_products" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -9,40 +8,62 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="product_form" onsubmit="return false">
-        
-          <div class="form-group">
-            <label>Product ID</label>
-            <input type="text" class="form-control" id="product_id" placeholder="Enter Product ID" required/>
-          </div>
+
+        <form id="form_products">
 
           <div class="form-group">
-            <label>Product Name</label>
-            <input type="text" class="form-control" id="product_name" placeholder="Enter Product Name" required>
-          </div>
+              <label>SKU:</label>
+              <input type="text" class="form-control" id="product_sku" placeholder="Enter SKU" required/>
+            </div>
+  
+            <div class="form-group">
+              <label>Name:</label>
+              <input type="text" class="form-control" id="product_name" placeholder="Enter Product Name" >
+            </div>
+  
+            <div class="form-group">
+              <label>Stock Level:</label>
+              <input type="text" class="form-control" id="product_stockLevel" placeholder="Enter Stock Level" >
+            </div>
+  
+            <div class="form-group">
+              <label>Items Sold:</label>
+              <input type="text" class="form-control" id="product_itemsSold" placeholder="Enter Number of Items Sold" >
+            </div>
+  
+            <div class="form-group">
+              <label>Last Stocked:</label>
+              <input type="date" class="form-control" id="product_lastStocked" placeholder="Enter Date that Product was Last Stocked" >
+            </div>
+  
+            <div class="form-group">
+              <label>Date Ordered:</label>
+              <input type="date" class="form-control" id="product_orderDate" placeholder="Enter Date that Product was Ordered" >
+            </div>
+  
+            <div class="form-group">
+              <label>Sale Price</label>
+              <input type="text" class="form-control" id="product_salePrice" placeholder="Enter Retail Price of Product" />
+            </div>
+    
+            <div class="form-group">
+              <label>Order Price</label>
+              <input type="text" class="form-control" id="product_orderPrice" placeholder="Enter Order Price of Product" />
+            </div>
+            <button type="button" class="btn btn-success" onclick="insertNewItem(
+              document.getElementById('product_sku').value,
+              document.getElementById('product_name').value,
+              document.getElementById('product_stockLevel').value,
+              document.getElementById('product_itemsSold').value,
+              document.getElementById('product_lastStocked').value,
+              document.getElementById('product_orderDate').value,
+              document.getElementById('product_salePrice').value,
+              document.getElementById('product_orderPrice').value
+          )">Add Product</button>
 
-          <div class="form-group">
-            <label>Product Cost</label>
-            <input type="text" class="form-control" id="product_cost" placeholder="Enter Cost of Product" required>
-          </div>
-
-          <div class="form-group">
-            <label>Product Price</label>
-            <input type="text" class="form-control" id="product_price" placeholder="Enter Price of Product" required/>
-          </div>
-
-          <div class="form-group">
-            <label>Quantity</label>
-            <input type="text" class="form-control" id="product_qty" placeholder="Enter Quantity" required/>
-          </div>
-          <button type="submit" class="btn btn-success" onclick="insertNewItem(
-            document.getElementById('product_id').value,
-            document.getElementById('product_name').value,
-            document.getElementById('product_cost').value,
-            document.getElementById('product_price').value,
-            document.getElementById('product_qty').value)">Add Product</button>
         </form>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>

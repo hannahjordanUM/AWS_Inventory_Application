@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
  	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
- 	<script type="text/javascript" src="./js/main.js"></script>
+ 	<!--<script type="text/javascript" src="./js/main.js"></script>-->
 	<script type="text/javascript" src="./js/functions.js"></script>
  </head>
 <body>
@@ -44,7 +44,7 @@
 						      <div class="card-body">
 						        <h4 class="card-title">New Orders</h4>
 						        <p class="card-text">Here you can make invoices and create new orders</p>
-						        <a href="new_order.php" class="btn btn-primary">New Orders</a>
+						        <a href="#" class="btn btn-primary">New Orders</a>
 						      </div>
 						    </div>
 						</div>
@@ -62,8 +62,8 @@
 						<div class="card-body">
 						<h4 class="card-title">Categories</h4>
 						<p class="card-text">Here you can manage your categories and you add new parent and sub categories</p>
-						<a href="#" data-toggle="modal" data-target="#form_category" class="btn btn-primary">Add</a>
-						<a href="manage_categories.php" class="btn btn-primary">Manage</a>
+						<a href="#" data-toggle="modal" data-target="#" class="btn btn-primary">Add</a>
+						<a href="#" class="btn btn-primary">Manage</a>
 					</div>
 				</div>
 			</div>
@@ -72,8 +72,8 @@
 						<div class="card-body">
 						<h4 class="card-title">Brands</h4>
 						<p class="card-text">Here you can manage your brand and you add new brand</p>
-						<a href="#" data-toggle="modal" data-target="#form_brand" class="btn btn-primary">Add</a>
-						<a href="manage_brand.php" class="btn btn-primary">Manage</a>
+						<a href="#" data-toggle="modal" data-target="#" class="btn btn-primary">Add</a>
+						<a href="#" class="btn btn-primary">Manage</a>
 					</div>
 				</div>
 			</div>
@@ -90,16 +90,6 @@
 		</div>
 	</div>
 
-
-	
-	<?php
-	//Categpry Form
-	include_once("./templates/category.php");
-	 ?>
-	 <?php
-	//Brand Form
-	include_once("./templates/brand.php");
-	 ?>
 	 <?php
 	//Products Form
 	include_once("./templates/products.php");
