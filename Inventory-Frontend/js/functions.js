@@ -1,4 +1,4 @@
-const api_url = "https://abp7yt75o1.execute-api.us-west-2.amazonaws.com/dev/"
+const api_url = "api url"; // api url here
 // define the callAPI function that takes a first name and last name as parameters
 var insertNewItem = (sku,name,stockLevel,itemsSold,lastStocked,orderDate,salePrice,orderPrice)=>{
 	// instantiate a headers object

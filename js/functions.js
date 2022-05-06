@@ -1,12 +1,11 @@
-const api_url = "https://abp7yt75o1.execute-api.us-west-2.amazonaws.com/dev/"
+const api_url = "insert url here"
 // define the callAPI function that takes a first name and last name as parameters
 var insertNewItem = (sku,name,stockLevel,itemsSold,lastStocked,orderDate,salePrice,orderPrice)=>{
 	// instantiate a headers object
 	var myHeaders = new Headers();
 	// add content type header to object
 	myHeaders.append("Content-Type", "application/json");
-	// using built in JSON utility package turn object to string and store in a variable
-	//var raw = JSON.stringify({"firstName":firstName,"lastName":lastName});
+
 	// create a JSON object with parameters for API call and store in a variable
 	var raw = JSON.stringify({
 	  'sku': sku,
